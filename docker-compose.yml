@@ -1,0 +1,13 @@
+version: "2.1"
+services:
+  kp-translator:
+      build: "."
+      environment:
+        PYTHONUNBUFFERED: 1
+        FLASK_SERVER_NAME: localhost
+      ports:
+        - "80:80"
+        - "443:443"
+        - "8080:8080"
+      volumes:
+        - ./:/local
