@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
-
-import connexion
-
-from kpTranslator import encoder
-
+from kpTranslator.config import connex_app
 
 def main():
-    app = connexion.App(__name__, specification_dir='./openapi/')
-    app.app.json_encoder = encoder.JSONEncoder
-    app.add_api('openapi.yaml',
-                arguments={'title': 'OpenAPI for NCATS Biomedical Translator Reasoners'},
-                pythonic_params=True)
-    app.run(port=8080)
-
+  connex_app.add_api('openapi.yaml',
+            arguments={'title': 'OpenAPI for NCATS Biomedical Translator Reasoners'},
+            pythonic_params=True)
+  connex_app.run(host='0.0.0.0', port=8080)
 
 if __name__ == '__main__':
-    main()
+  main()

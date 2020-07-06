@@ -6,8 +6,8 @@ services:
         PYTHONUNBUFFERED: 1
         FLASK_SERVER_NAME: localhost
       ports:
-        - "80:80"
-        - "443:443"
         - "8080:8080"
       volumes:
-        - ./:/local
+        - ./:/usr/src/app
+      networks:
+        - default

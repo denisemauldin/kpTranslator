@@ -60,4 +60,12 @@ sudo pip install tox
 tox
 ```
 
+## Database
+
+To create the test database, start the server and run
+
+```
+docker-compose exec kp-translator python scripts/build_database.py
+```
+
 This was generated using a modified TranslatorReasonersAPI.yaml that does not include the oneOf type definitions.

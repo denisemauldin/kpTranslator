@@ -54,6 +54,27 @@ paths:
       tags:
       - predicates
       x-openapi-router-controller: kpTranslator.controllers.predicates_controller
+  /test:
+    get:
+      operationId: test_get
+      summary: Read all Test Data
+      description: Read Test Data
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: string
+                      description: Id of the test
+                    name:
+                      type: string
+                      description: name of the test
+          description: Array of Test data
+      x-openapi-router-controller: kpTranslator.controllers.test_controller
   /query:
     post:
       operationId: query
