@@ -69,3 +69,29 @@ docker-compose exec kp-translator python scripts/build_database.py
 ```
 
 This was generated using a modified TranslatorReasonersAPI.yaml that does not include the oneOf type definitions.
+
+### Knowledge Graph Exchange (KGX) File Ingest (In Development)
+
+To populate the database from KGX-formatted flat files (see 
+[Data preparation for use with KGX](https://github.com/NCATS-Tangerine/kgx/blob/master/data-preparation.md)), run the
+build_database.py script with the --db_config flag as follows
+
+```
+docker-compose exec kp-translator python scripts/build_database.py --db_config data/db_config_file.json
+```
+
+The contents of the configuration file (located in a 'data' subfolder in the above example) should look like this
+
+```
+{
+    "dataset1": 
+    {
+        "source_dir": "source-data-folder",
+        "nodes_file": "source-data-nodes.tsv",
+        "edges_file": "source-data-edges.tsv"
+    }
+}
+```
+
+In this example, the nodes and edges files, denoted by "nodes_file" and "edges_file" should be located in the
+subdirectory denoted by "source_dir".
