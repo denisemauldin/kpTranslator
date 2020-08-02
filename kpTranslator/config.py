@@ -7,11 +7,6 @@ from kpTranslator import encoder
 basedir = os.path.abspath(os.path.dirname(__file__))
 db_file = os.path.join(basedir, 'translator_kg.db')
 
-# Delete database file if it exists currently
-if os.path.exists(db_file):
-    print("Deleting existing database file...")
-    os.remove(db_file)
-
 connex_app = connexion.App(__name__, specification_dir='./openapi/')
 
 # Get the underlying Flask app instance

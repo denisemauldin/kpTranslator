@@ -1,5 +1,4 @@
-from kpTranslator.database.models import TranslatorKnowledgeGraphNode
-from kpTranslator.database.models import TranslatorKnowledgeGraphEdge
+from kpTranslator.database.models import TranslatorKnowledgeGraphNode, TranslatorKnowledgeGraphEdge
 from kpTranslator.config import db, ma
 
 
