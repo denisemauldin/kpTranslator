@@ -19,14 +19,15 @@ def query(request_body):  # noqa: E501
 
     :rtype: Message
     """
+    # Parse request
     request = Query.from_dict(request_body)
 
-    if request is None:
-        return 'Query request is invalid!'
-
-    # Get query graph nodes
-    query_graph = request.message.query_graph
-    qnodes = query_graph.nodes
+    try:
+        # Get query graph nodes
+        query_graph = request.message.query_graph
+        qnodes = query_graph.nodes
+    except AttributeError as e:
+        return 'Query request is invalid!\n{}'.format(e)
 
     # Get the first valid node curie
     curie = None
